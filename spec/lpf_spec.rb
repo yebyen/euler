@@ -19,6 +19,11 @@ describe LPF do
   it "largest_prime_factor 600851475143 (12 digits)" do
     expect(LPF.lpf(600851475143)).to eql 6857
   end
+  it "lpf 10976461*2 (10976461)" do
+    n = 10976461
+    t = n*2
+    expect(LPF.lpf t).to eql 10976461
+  end
 end
 #it "should be faster"
 #it "should be faster"
