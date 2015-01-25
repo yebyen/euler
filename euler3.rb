@@ -5,12 +5,13 @@ require 'prime'
 
 class LPF
   def self.lpf(fun)
+    b = nil
     Math.sqrt(fun).to_i.downto(2) do |a|
       if fun % a == 0
-        b = fun/a
-        return b if b.prime?
-        return a if a.prime?
+        b = fun/a if (fun/a).prime?
+        return a if a.prime? and b.nil?
       end
     end
+    b
   end
 end
