@@ -4,12 +4,18 @@ require 'prime'
 # What is the largest prime factor of the number 600851475143 ?
 
 class LPF
-  def self.lpf(fun)
-    Math.sqrt(fun).to_i.downto(2) do |a|
-      if fun % a == 0
-        b = fun/a
-        return b if b.prime?
-        return a if a.prime?
+  def self.lpf(f)
+    Math.sqrt(f).to_i.downto(2) do |a|
+      if f % a == 0
+        b = f/a
+        if b.prime?
+          puts "#{f}: #{b}"
+          return b
+        end
+        if a.prime?
+          puts "#{f}: #{a}"
+          return a
+        end
       end
     end
   end
